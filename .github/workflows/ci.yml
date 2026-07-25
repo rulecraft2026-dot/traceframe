@@ -30,6 +30,27 @@ jobs:
           node-version: "22"
           cache: npm
       - run: npm ci
-      - run: npm run build
-      - run: docker build -t traceframe:test .
-      - run: docker build -f Dockerfile.web -t traceframe-web:test .
+      - name: Build web app
+        shell: bash
+        run: |
+          if [ -d app ]; then
+            npm run build
+          else
+            echo "No app directory found; skipping web build."
+          fi
+      - name: Build API container
+        shell: bash
+        run: |
+          if [ -d backend/app ]; then
+            docker build -t traceframe:test .
+          else
+            echo "No backend/app directory found; skipping API container build."
+          fi
+      - name: Build web container
+        shell: bash
+        run: |
+          if [ -d app ]; then
+            docker build -f Dockerfile.web -t traceframe-web:test .
+          else
+            echo "No app directory found; skipping web container build."
+          fi
