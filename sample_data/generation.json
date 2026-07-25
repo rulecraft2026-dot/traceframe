@@ -1,0 +1,16 @@
+{
+  "id": "run_sample_7f2a",
+  "parent_id": null,
+  "prompt": "A refillable trail bottle on warm stone at sunrise, editorial product photography",
+  "provider": "openai",
+  "model": "gpt-image-1",
+  "params": {"size": "1536x1024", "quality": "medium"},
+  "status": "completed",
+  "created_at": "2026-07-25T02:00:00Z",
+  "completed_at": "2026-07-25T02:00:14Z",
+  "asset_url": "https://example.invalid/traceframe/sample.png",
+  "asset_sha256": "84f1c6ab79e8c8aeb5c9060e513da9b8a7cb12641baf73fac7ea708bb55bc29a",
+  "manifest_sha256": "e697fa209cc7a7d1b7cf9c19466aed6de62c848ea938e6ea740c0e32de23a420",
+  "manifest_url": "https://example.invalid/traceframe/manifest.json",
+  "replayable": true
+}
