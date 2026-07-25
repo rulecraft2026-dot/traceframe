@@ -6,6 +6,7 @@ COPY app ./app
 COPY public ./public
 COPY .openai ./.openai
 COPY build ./build
+COPY worker ./worker
 COPY next.config.ts postcss.config.mjs tsconfig.json vite.config.ts ./
 RUN npm run build
 
