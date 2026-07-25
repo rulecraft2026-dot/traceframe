@@ -17,7 +17,14 @@ jobs:
           python-version: "3.12"
           cache: pip
       - run: pip install -r requirements.txt
-      - run: PYTHONPATH=backend pytest backend/tests -q
+      - name: Run Python tests
+        shell: bash
+        run: |
+          if [ -d backend/tests ] && find backend/tests -type f -name 'test_*.py' -print -quit | grep -q .; then
+            PYTHONPATH=backend pytest backend/tests -q
+          else
+            echo "No Python tests found under backend/tests; skipping pytest."
+          fi
       - uses: actions/setup-node@v4
         with:
           node-version: "22"
